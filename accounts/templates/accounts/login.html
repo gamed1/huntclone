@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Login!</h1>
+
+
+{% if error  %} <!-- foutmelding gevonden  -->
+{{ error }}
+<br />
+<br />
+{% endif %}
+
+<form method="POST" action="{% url 'login' %}">
+{% csrf_token %}  <!-- https://docs.djangoproject.com/en/2.0/ref/csrf/   Cross Site Request Forgery protection -->
+
+Username:
+<br />
+<input type="text" name="username" />
+<br />
+Password:
+<br />
+<input type="password" name="password" />
+
+<br />
+<input class="btn btn-primary"type="submit" value="Log in!" />
+
+
+</form>
+
+
+{% endblock %}
